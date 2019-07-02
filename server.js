@@ -1,5 +1,5 @@
 const env = require("dotenv").config();
-const chatbot = require("./controllers/chatbot")
+const chatbot = require("./client/src/components/chatbot")
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./client/src/App")
