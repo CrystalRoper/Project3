@@ -2,7 +2,7 @@ const env = require("dotenv").config();
 const chatbot = require("./controllers/chatbot")
 const express = require("express");
 const mongoose = require("mongoose");
-const routes = require("./react/src/App")
+const routes = require("./client/src/App")
 const app = express();
 const PORT = process.env.PORT || 8080;
 
