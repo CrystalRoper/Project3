@@ -1,8 +1,9 @@
 import React from "react";
+import Test from "./components/Test";
 
 function Home() {
 return (
-    <div>test</div>
+    return <Test />;
 )
 
 }
