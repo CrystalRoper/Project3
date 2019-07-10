@@ -17,13 +17,13 @@ app.listen(PORT, function () {
     chatbot.connect(Chat);
 });
 
-// Questions.create(data, function(errors, insertedQuestion){
-//     if (errors) {
-//         return console.error(errors);
-//     } else {
-//         console.log(insertedQuestion);
-//     }
-// });
+Questions.create(data, function(errors, insertedQuestion){
+    if (errors) {
+        return console.error(errors);
+    } else {
+        console.log(insertedQuestion);
+    }
+});
 
 
 

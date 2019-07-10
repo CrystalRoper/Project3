@@ -8,7 +8,7 @@ var bot = {
         bot.chat = chatMessages;
         bot.client = new tmi.client({
             identity: { username: process.env.BOT_USERNAME, password: process.env.OAUTH_TOKEN },
-            channels: [process.env.CHANNEL_NAME, "Puppers", "morf_uk"]
+            channels: [process.env.CHANNEL_NAME, "goodlilsquee", "morf_uk"]
         });
 
         bot.client.on('connected', bot.onConnected);
