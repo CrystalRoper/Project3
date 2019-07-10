@@ -1,18 +1,37 @@
 const env = require("dotenv").config();
-const chatbot = require("./client/src/components/chatbot")
+const chatbot = require("./server-code/chatbot")
 const express = require("express");
 const mongoose = require("mongoose");
-const routes = require("./client/src/App")
+const serverRoutes = require("./server-code/routes/api/index");
 const app = express();
+const router = express.Router();;
 const PORT = process.env.PORT || 8080;
+const Questions = require("./server-code/models/triviaQuestions");
+const Chat = require("./server-code/models/chatMessages");
+const data = require("./server-code/data/trivia-questions");
 
-app.use(routes);
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_32vt9091:ju29dgf3cektb01lom1ma316vg@ds241977.mlab.com:41977/heroku_32vt9091");
+serverRoutes(app, router, Chat, Questions);
 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
     console.log("Starting chatbot");
-    var bot = chatbot();
-    bot.connect();
+    chatbot.connect(Chat);
 });
+
+// Questions.create(data, function(errors, insertedQuestion){
+//     if (errors) {
+//         return console.error(errors);
+//     } else {
+//         console.log(insertedQuestion);
+//     }
+// });
+
+// Questions.insertMany(data)
+//     .then(function (err, dbQuestions) {
+//         // If saved successfully, print the new Questions document to the console
+//         console.log(dbQuestions);
+//     })
+//     .catch(function (err) {
+//         // If an error occurs, log the error message
+//         console.log(err.message);
+//     });
