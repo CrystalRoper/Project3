@@ -9,12 +9,6 @@ const Questions = require("./server-code/models/triviaQuestions");
 const Chat = require("./server-code/models/chatMessages");
 const data = require("./server-code/data/trivia-questions");
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-
 serverRoutes(app, Chat, Questions);
 
 app.listen(PORT, function () {
