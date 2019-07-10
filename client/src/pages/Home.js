@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/api";
+import { List, ListItem } from "../components/List";
 
 class Home extends Component {
     state = {
@@ -49,17 +50,17 @@ class Home extends Component {
                     <Col size="md-6 sm-12">
                         <Jumbotron>
                             <h1>Chat</h1>
-                            <div>
+                            <List>
                                 {this.state.chatMessages.length ? (
-                                    <div>
+                                    <ListItem>
                                         {this.state.chatMessages.map(chatMessage => (
                                             <div>
                                                 <strong>{chatMessage.username}</strong>: {chatMessage.message}
                                             </div>
                                         ))}
-                                    </div>
+                                    </ListItem>
                                 ) : (<h3>No Results to Display</h3>)}
-                            </div>
+                            </List>
                         </Jumbotron>
                     </Col>
                 </Row>
