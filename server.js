@@ -12,12 +12,6 @@ const data = require("./server-code/data/trivia-questions");
 
 serverRoutes(app, router, Chat, Questions);
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
     console.log("Starting chatbot");
