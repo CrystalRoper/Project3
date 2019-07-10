@@ -4,13 +4,18 @@ const express = require("express");
 const mongoose = require("mongoose");
 const serverRoutes = require("./server-code/routes/api/index");
 const app = express();
-const router = express.Router();;
 const PORT = process.env.PORT || 8080;
 const Questions = require("./server-code/models/triviaQuestions");
 const Chat = require("./server-code/models/chatMessages");
 const data = require("./server-code/data/trivia-questions");
 
-serverRoutes(app, router, Chat, Questions);
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
+serverRoutes(app, Chat, Questions);
 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
